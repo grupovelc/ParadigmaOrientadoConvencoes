@@ -26,6 +26,10 @@ class ConscienciaController {
 
     @Transactional
     def save(Consciencia conscienciaInstance) {
+
+        //Impressão do tempo de operação
+        println params.tempoOperacao
+
         if (conscienciaInstance == null) {
             notFound()
             return
@@ -36,9 +40,8 @@ class ConscienciaController {
             return
         }
 
+        //Capturando a correlação na service
         correlacaoService.calculoCorrelacao();
-
-        println params.tempoOperacao
 
         conscienciaInstance.save flush:true
 

@@ -5,9 +5,9 @@ import grails.transaction.Transactional
 @Transactional
 class CorrelacaoService {
 
-	float tempoCorrelacao = 3;
+	double tempoCorrelacao = 10;
 
-	double calculoCorrelacao(){
+	def calculoCorrelacao(){
 		 double somaOrdenadas = 0;
 		 double somaAbcissas = 0;
 		 double somaOrdenadasQuadrado = 0;
