@@ -5,38 +5,41 @@ import grails.transaction.Transactional
 @Transactional
 class CorrelacaoService {
 
-	 int tempo_correlacao = 3;
+	float tempoCorrelacao = 3;
 
-	 private double calculoCorrelacao(int tempo_correlacao){
-		 double soma_ordenadas = 0;
-		 double soma_abcissas = 0;
-		 double soma_ordenadas_quadrado = 0;
-		 double soma_abcissas_quadrado = 0;
-		 double numero_abcissa;
-		 double numero_ordenada;
-		 double soma_X_vezes_Y = 0;
+	double calculoCorrelacao(){
+		 double somaOrdenadas = 0;
+		 double somaAbcissas = 0;
+		 double somaOrdenadasQuadrado = 0;
+		 double somaAbcissasQuadrado = 0;
+		 double numeroAbcissa;
+		 double numeroOrdenada;
+		 double somaXvezesY = 0;
 		 double numerador, denominador_1,denominador,correlacao;
 		 double abertura, fechamento;
+		 int c = 0;
 
-		for(int c=0; c<tempo_correlacao; c++){
-		    numero_abcissa = 1; //Futura abertura
-		    numero_ordenada = 1; //Futuro fechamento
-		    soma_abcissas =   soma_abcissas + numero_abcissa;
-		    soma_abcissas_quadrado = 1; //(soma_abcissas_quadrado) + (numero_abcissa)*(numero_abcissa);
-		    soma_ordenadas = soma_ordenadas + numero_ordenada;
-		    soma_ordenadas_quadrado = 1 ; //(soma_ordenadas_quadrado) + (numero_ordenada)*(numero_ordenada);
-		    soma_X_vezes_Y = soma_X_vezes_Y + (numero_ordenada*numero_abcissa);
+		for(c=0; c<tempoCorrelacao; c++){
+		    numeroAbcissa = c + 1.5; //Futura abertura
+		    numeroOrdenada = c + 1; //Futuro fechamento
+		    somaAbcissas =   somaAbcissas + numeroAbcissa;
+		    somaAbcissasQuadrado = 22; //(somaAbcissasQuadrado) + (numeroAbcissa*numeroAbcissa);
+		    somaOrdenadas = somaOrdenadas + numeroOrdenada;
+		    somaOrdenadasQuadrado = 22; //(somaOrdenadasQuadrado) + (numeroOrdenada*numeroOrdenada);
+		    somaXvezesY = somaXvezesY + (numeroOrdenada*numeroAbcissa);
 		 } 
 
-		 numerador =((tempo_correlacao*soma_X_vezes_Y)-((soma_abcissas)*(soma_ordenadas)));
-		 denominador_1 =((tempo_correlacao*soma_abcissas_quadrado)-(soma_abcissas*soma_abcissas))*
-		 ((tempo_correlacao*soma_ordenadas_quadrado)-(soma_ordenadas*soma_ordenadas));	
-		 denominador = 1; // MathPow(denominador_1,1.0/2.0); 
+		numerador =((tempoCorrelacao*somaXvezesY)-((somaAbcissas)*(somaOrdenadas)));
+		denominador_1 =((tempoCorrelacao*somaAbcissasQuadrado)-(somaAbcissas*somaAbcissas))*
+		((tempoCorrelacao*somaOrdenadasQuadrado)-(somaOrdenadas*somaOrdenadas));	
 
-		correlacao = numerador/denominador;  
+		denominador = 6280; //pow(denominador_1, 1/2); 
 
-		return (correlacao);
-	}      
+		correlacao = numerador/denominador; 
+
+		println correlacao+"\n\n\n\n"
+		return correlacao
+	}
 
     def serviceMethod() {
 

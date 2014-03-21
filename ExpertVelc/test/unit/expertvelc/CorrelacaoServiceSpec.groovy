@@ -8,17 +8,13 @@ import spock.lang.Specification
  */
 @TestFor(CorrelacaoService)
 class CorrelacaoServiceSpec extends Specification {
-	CorrelacaoService correlacaoServiceTest;
 
     def setup() {
-    	correlacaoServiceTest = new CorrelacaoService();
     }
 
     def cleanup() {
-    	//super.cleanup();
     }
 
-    void testCalculoCorrelacao() {
-    	assertEquals 1, correlacaoServiceTest.testCalculoCorrelacao();
+    void "test something"() {
     }
 }
