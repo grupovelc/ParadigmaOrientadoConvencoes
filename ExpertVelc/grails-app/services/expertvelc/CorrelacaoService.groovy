@@ -10,12 +10,10 @@ class CorrelacaoService {
 		        somaOrdenadasQuadrado = 0, somaAbcissasQuadrado = 0,
 		        somaXvezesY = 0, correlacao,
 		        numeroAbcissa, numeroOrdenada,
-		        numerador, denominador_1,denominador,
-		        abertura, fechamento;
+		        numerador, denominador_1,denominador;
 
 		for(int c=0; c<tempoCorrelacao; c++){
-		    numeroAbcissa = c + 1.5; //Futura abertura
-		    if(c == 2) c = 4; // Código temporário
+		    numeroAbcissa = c ; //Futura abertura
 		    numeroOrdenada = c + 1; //Futuro fechamento
 		    somaAbcissas =   somaAbcissas + numeroAbcissa;
 		    somaAbcissasQuadrado += (numeroAbcissa*numeroAbcissa);
@@ -33,14 +31,11 @@ class CorrelacaoService {
 		correlacao = numerador/denominador; 
 
 		println "______________________________________\n"
-		println "denominador_1 "+denominador_1 + "\n\n"
-		println "denominador "+denominador + "\n\n"
 		println "correlação "+correlacao+"\n\n\n\n"
 		println "______________________________________\n"
+
 		return correlacao
 	}
 
-    def serviceMethod() {
-
-    }
+    def serviceMethod() { }
 }
