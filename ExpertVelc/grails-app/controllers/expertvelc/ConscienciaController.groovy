@@ -1,7 +1,5 @@
 package expertvelc
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -27,8 +25,7 @@ class ConscienciaController {
     @Transactional
     def save(Consciencia conscienciaInstance) {
 
-        //Impressão do tempo de operação
-        println params.tempoOperacao
+        correlacaoService.calculoCorrelacao(params.tempoOperacao.toDouble());
 
         if (conscienciaInstance == null) {
             notFound()
@@ -39,9 +36,6 @@ class ConscienciaController {
             respond conscienciaInstance.errors, view:'create'
             return
         }
-
-        //Capturando a correlação na service
-        correlacaoService.calculoCorrelacao();
 
         conscienciaInstance.save flush:true
 
