@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${roboInstance?.tipoGrafico}">
+				<li class="fieldcontain">
+					<span id="tipoGrafico-label" class="property-label"><g:message code="robo.tipoGrafico.label" default="Tipo Grafico" /></span>
+					
+						<span class="property-value" aria-labelledby="tipoGrafico-label"><g:fieldValue bean="${roboInstance}" field="tipoGrafico"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${roboInstance?.alavancagem}">
 				<li class="fieldcontain">
 					<span id="alavancagem-label" class="property-label"><g:message code="robo.alavancagem.label" default="Alavancagem" /></span>
@@ -46,15 +55,6 @@
 					<span id="quantidadeCandle-label" class="property-label"><g:message code="robo.quantidadeCandle.label" default="Quantidade Candle" /></span>
 					
 						<span class="property-value" aria-labelledby="quantidadeCandle-label"><g:fieldValue bean="${roboInstance}" field="quantidadeCandle"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${roboInstance?.tipoGrafico}">
-				<li class="fieldcontain">
-					<span id="tipoGrafico-label" class="property-label"><g:message code="robo.tipoGrafico.label" default="Tipo Grafico" /></span>
-					
-						<span class="property-value" aria-labelledby="tipoGrafico-label"><g:fieldValue bean="${roboInstance}" field="tipoGrafico"/></span>
 					
 				</li>
 				</g:if>
