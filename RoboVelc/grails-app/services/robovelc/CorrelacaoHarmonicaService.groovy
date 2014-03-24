@@ -3,7 +3,7 @@ package robovelc
 import grails.transaction.Transactional
 
 @Transactional
-class CorrelacaoHarmonicaService {
+class CorrelacaoHarmonicaService extends CorrelacaoService{
 
 	def calculoCorrelacao(double tempoCorrelacao){
 		 double somaOrdenadas = 0, somaAbcissas = 0,
@@ -14,6 +14,7 @@ class CorrelacaoHarmonicaService {
 
 		for(int c=0; c<tempoCorrelacao; c++){
 		    numeroAbcissa = c ; //Futura abertura
+		    if (c == 2) c = 10;
 		    numeroOrdenada = c + 1; //Futuro fechamento
 		    somaAbcissas =   somaAbcissas + numeroAbcissa;
 		    somaAbcissasQuadrado += (numeroAbcissa*numeroAbcissa);
@@ -31,7 +32,7 @@ class CorrelacaoHarmonicaService {
 		correlacao = numerador/denominador; 
 
 		println "______________________________________\n"
-		println "correlação "+correlacao+"\n\n\n\n"
+		println "correlação harmonica"+correlacao+"\n\n\n\n"
 		println "______________________________________\n"
 
 		return correlacao

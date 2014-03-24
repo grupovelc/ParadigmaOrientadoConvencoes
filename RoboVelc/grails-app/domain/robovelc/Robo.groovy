@@ -3,7 +3,7 @@ package robovelc
 class Robo {
 
 	String nomeRobo
-	String tipoGrafico
+	//String tipoGrafico
 	double alavancagem
 	double quantidadeCandle
 
