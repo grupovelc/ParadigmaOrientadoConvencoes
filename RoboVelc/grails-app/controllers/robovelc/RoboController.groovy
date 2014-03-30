@@ -5,7 +5,9 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class RoboController {
-    def correlacaoHarmonicaService
+    def FatorKService
+    def FatorMService
+    def FatorHService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -25,7 +27,12 @@ class RoboController {
     @Transactional
     def save(Robo roboInstance) {
 
-        correlacaoHarmonicaService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+        FatorKService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+
+        FatorMService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+
+        FatorHService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+
 
         if (roboInstance == null) {
             notFound()
