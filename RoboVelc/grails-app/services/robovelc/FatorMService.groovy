@@ -3,7 +3,7 @@ package robovelc
 import grails.transaction.Transactional
 
 @Transactional
-class FatorHService  extends CorrelacaoService{
+class FatorMService extends CorrelacaoService{
 
 
 	def calculoCorrelacao(double tempoCorrelacao){
@@ -33,7 +33,7 @@ class FatorHService  extends CorrelacaoService{
 		correlacao = numerador/denominador; 
 
 		println "______________________________________\n"
-		println "Fator H"+correlacao+"\n\n\n\n"
+		println "Fator M"+correlacao+"\n\n\n\n"
 		println "______________________________________\n"
 
 		return correlacao
