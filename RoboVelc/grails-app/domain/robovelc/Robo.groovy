@@ -12,3 +12,4 @@ class Robo {
     	tipoGrafico(blank:false, inList:["M1", "M5", "H1"] )
     }
 }
+
