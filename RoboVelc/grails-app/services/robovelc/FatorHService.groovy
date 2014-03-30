@@ -14,9 +14,8 @@ class FatorHService  extends CorrelacaoService{
 		        numerador, denominador_1,denominador;
 
 		for(int c=0; c<tempoCorrelacao; c++){
-		    numeroAbcissa = c ; //Futura abertura
-		    if (c == 2) c = 10;
-		    numeroOrdenada = c + 1; //Futuro fechamento
+		    numeroAbcissa = c;
+		    numeroOrdenada = c+1;
 		    somaAbcissas =   somaAbcissas + numeroAbcissa;
 		    somaAbcissasQuadrado += (numeroAbcissa*numeroAbcissa);
 		    somaOrdenadas = somaOrdenadas + numeroOrdenada;
