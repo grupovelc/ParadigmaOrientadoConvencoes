@@ -33,7 +33,7 @@ class FatorKService extends CorrelacaoService{
 		correlacao = numerador/denominador; 
 
 		println "______________________________________\n"
-		println "correlação harmonica"+correlacao+"\n\n\n\n"
+		println "Fator k instanciado = ["+correlacao+"]\n\n\n\n"
 		println "______________________________________\n"
 
 		return correlacao

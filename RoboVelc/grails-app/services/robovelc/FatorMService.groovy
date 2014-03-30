@@ -33,7 +33,7 @@ class FatorMService extends CorrelacaoService{
 		correlacao = numerador/denominador; 
 
 		println "______________________________________\n"
-		println "Fator M"+correlacao+"\n\n\n\n"
+		println "Fator M instanciado = ["+correlacao+"]\n\n\n\n"
 		println "______________________________________\n"
 
 		return correlacao

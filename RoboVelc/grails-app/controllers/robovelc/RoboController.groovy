@@ -5,9 +5,8 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class RoboController {
-    def FatorKService
-    def FatorMService
-    def FatorHService
+
+    def FatorKService, FatorMService, FatorHService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -24,15 +23,27 @@ class RoboController {
         respond new Robo(params)
     }
 
+
+    def selecaoCorrelacao(){
+
+        if(params.tipoGrafico.toString() == "M1")
+            FatorMService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+
+        else if(params.tipoGrafico.toString() == "M5")
+            FatorKService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+
+        else if(params.tipoGrafico.toString() == "H1")
+            FatorHService.calculoCorrelacao(params.quantidadeCandle.toDouble());
+        else 
+            print("Erro. Nenhuma correlacao instanciada! \n");
+
+    }
+
+
     @Transactional
     def save(Robo roboInstance) {
 
-        FatorKService.calculoCorrelacao(params.quantidadeCandle.toDouble());
-
-        FatorMService.calculoCorrelacao(params.quantidadeCandle.toDouble());
-
-        FatorHService.calculoCorrelacao(params.quantidadeCandle.toDouble());
-
+        selecaoCorrelacao()
 
         if (roboInstance == null) {
             notFound()
@@ -110,4 +121,5 @@ class RoboController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    
 }
