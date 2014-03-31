@@ -44,6 +44,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://repo.spring.io/milestone/"
     }
 
     dependencies {
@@ -57,6 +58,7 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.52.1"
 
         // plugins for the compile step
+        compile ":spring-security-core:2.0-RC2"
         compile ":scaffolding:2.0.2"
         compile ':cache:1.1.1'
 
