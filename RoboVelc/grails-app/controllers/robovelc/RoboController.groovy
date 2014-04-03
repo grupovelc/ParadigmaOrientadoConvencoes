@@ -2,8 +2,10 @@ package robovelc
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugin.springsecurity.annotation.Secured
 
 @Transactional(readOnly = true)
+@Secured(['IS_AUTHENTICATED_FULLY'])
 class RoboController {
 
     def scaffold = Robo
