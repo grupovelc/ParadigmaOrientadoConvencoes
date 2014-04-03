@@ -93,6 +93,12 @@ class RoboController {
         }
     }
 
+    def ativarRobo(Robo roboInstance){
+
+        flash.message = "Robô "+roboInstance.nomeRobo.toString()+" ativado com sucesso!"
+                redirect action:"index"
+    }
+
     @Transactional
     def delete(Robo roboInstance) {
 
