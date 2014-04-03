@@ -5,6 +5,8 @@ import grails.transaction.Transactional
 @Transactional
 class FatorMService extends CorrelacaoService{
 
+	List cotacoesFatorK = new File("tabela1Minuto.csv").readLines()
+
 
 	def calculoCorrelacao(double tempoCorrelacao){
 		 double somaOrdenadas = 0, somaAbcissas = 0,
@@ -14,9 +16,8 @@ class FatorMService extends CorrelacaoService{
 		        numerador, denominador_1,denominador;
 
 		for(int c=0; c<tempoCorrelacao; c++){
-		    numeroAbcissa = c ; //Futura abertura
-		    if (c == 2) c = 10;
-		    numeroOrdenada = c + 1; //Futuro fechamento
+		    numeroAbcissa = cotacoesFatorK[c].toDouble()
+		    numeroOrdenada = cotacoesFatorK[c+1].toDouble()
 		    somaAbcissas =   somaAbcissas + numeroAbcissa;
 		    somaAbcissasQuadrado += (numeroAbcissa*numeroAbcissa);
 		    somaOrdenadas = somaOrdenadas + numeroOrdenada;
