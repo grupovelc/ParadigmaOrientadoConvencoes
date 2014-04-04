@@ -44,6 +44,7 @@ class RoboController {
         gravaArquivo.append(roboInstance.getAlavancagem())
         gravaArquivo.append(" ")
         gravaArquivo.append(roboInstance.getQuantidadeCandle())
+        gravaArquivo.append(" ")
 
         if(roboInstance.nomeRoboAtivado() == null)
 

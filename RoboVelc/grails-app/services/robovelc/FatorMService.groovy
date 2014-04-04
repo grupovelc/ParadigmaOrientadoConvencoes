@@ -6,13 +6,13 @@ import grails.transaction.Transactional
 class FatorMService extends CorrelacaoService{
 
 	List cotacoesFatorK = new File("tabela1Minuto.csv").readLines()
+	private double correlacao
 
 
 	def calculoCorrelacao(double tempoCorrelacao){
 		 double somaOrdenadas = 0, somaAbcissas = 0,
 		        somaOrdenadasQuadrado = 0, somaAbcissasQuadrado = 0,
-		        somaXvezesY = 0, correlacao,
-		        numeroAbcissa, numeroOrdenada,
+		        somaXvezesY = 0, numeroAbcissa, numeroOrdenada,
 		        numerador, denominador_1,denominador;
 
 		for(int c=0; c<tempoCorrelacao; c++){
@@ -33,12 +33,21 @@ class FatorMService extends CorrelacaoService{
 
 		correlacao = numerador/denominador; 
 
+		GravaCorrelacao()
+
 		println "______________________________________\n"
 		println "Fator M instanciado = ["+correlacao+"]\n\n\n\n"
 		println "______________________________________\n"
 
-		return correlacao
 	}
 
-    def serviceMethod() {}
+    def GravaCorrelacao() {
+
+    	def arquivo ="metodosNumericos.txt"
+        File limpaArquivo = new File(arquivo)
+        File gravaArquivo = new File(arquivo)
+
+        limpaArquivo.write("")
+        gravaArquivo.append(correlacao)
+    }
 }

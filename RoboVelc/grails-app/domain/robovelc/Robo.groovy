@@ -6,7 +6,7 @@ class Robo {
 	String tipoGrafico
 	double alavancagem
 	double quantidadeCandle
-	static String nomeRoboAtivado
+	static String nomeRoboAtivado = "Nenhum"
 
     static constraints = {
     	nomeRobo(maxSize: 30)
