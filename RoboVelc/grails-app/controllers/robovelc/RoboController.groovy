@@ -27,7 +27,7 @@ class RoboController {
 
     }
 
-     def ativarRobo(Robo roboInstance){
+    def ativarRobo(Robo roboInstance){
 
         def arquivo ="criterioEntrada.txt"
         File limpaArquivo = new File(arquivo)
@@ -44,6 +44,14 @@ class RoboController {
         gravaArquivo.append(roboInstance.getAlavancagem())
         gravaArquivo.append(" ")
         gravaArquivo.append(roboInstance.getQuantidadeCandle())
+
+        if(roboInstance.nomeRoboAtivado() == null)
+
+            roboInstance.nomeRoboAtivado = "Nenhum"
+        else
+            roboInstance.nomeRoboAtivado = roboInstance.getNomeRobo()
+
+        print roboInstance.nomeRoboAtivado 
      
     }
 

@@ -11,9 +11,12 @@
 		<a href="#show-robo" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
+
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link>
+				<li><g:message code= "_-_-_-_-_-_-_-_-_-_-_-_  Robô ativado : ${roboInstance?.nomeRoboAtivado} _-_-_-_-_-_-_-_-_-_-_-_" /></li>
+
 			</ul>
 		</div>
 		<div id="show-robo" class="content scaffold-show" role="main">
@@ -25,7 +28,7 @@
 			
 				<g:if test="${roboInstance?.nomeRobo}">
 				<li class="fieldcontain">
-					<span id="nomeRobo-label" class="property-label"><g:message code="robo.nomeRobo.label" default="Nome Robo" /></span>
+					<span id="nomeRobo-label" class="property-label"><g:message code="robo.nomeRobo.label" default="Nome Robô" /></span>
 					
 						<span class="property-value" aria-labelledby="nomeRobo-label"><g:fieldValue bean="${roboInstance}" field="nomeRobo"/></span>
 					
@@ -34,7 +37,7 @@
 			
 				<g:if test="${roboInstance?.tipoGrafico}">
 				<li class="fieldcontain">
-					<span id="tipoGrafico-label" class="property-label"><g:message code="robo.tipoGrafico.label" default="Tipo Grafico" /></span>
+					<span id="tipoGrafico-label" class="property-label"><g:message code="robo.tipoGrafico.label" default="Tipo Gráfico" /></span>
 					
 						<span class="property-value" aria-labelledby="tipoGrafico-label"><g:fieldValue bean="${roboInstance}" field="tipoGrafico"/></span>
 					
@@ -52,7 +55,7 @@
 			
 				<g:if test="${roboInstance?.quantidadeCandle}">
 				<li class="fieldcontain">
-					<span id="quantidadeCandle-label" class="property-label"><g:message code="robo.quantidadeCandle.label" default="Quantidade Candle" /></span>
+					<span id="quantidadeCandle-label" class="property-label"><g:message code="robo.quantidadeCandle.label" default="Quantidade Candles" /></span>
 					
 						<span class="property-value" aria-labelledby="quantidadeCandle-label"><g:fieldValue bean="${roboInstance}" field="quantidadeCandle"/></span>
 					

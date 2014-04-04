@@ -17,6 +17,8 @@
 				<li><a class="" href="http://localhost:8080/RoboVelc/logout/index"><g:message code="Sair"/></a></li>
 			</ul>
 		</div>
+
+
 		<div id="list-robo" class="content scaffold-list" role="main">
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
@@ -52,6 +54,7 @@
 				</g:each>
 				</tbody>
 			</table>
+	
 			<div class="pagination">
 				<g:paginate total="${roboInstanceCount ?: 0}" />
 			</div>

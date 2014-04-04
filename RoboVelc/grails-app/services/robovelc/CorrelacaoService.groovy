@@ -7,5 +7,4 @@ abstract class CorrelacaoService {
 
 	abstract def calculoCorrelacao(double tempoCorrelacao);
 
-    def serviceMethod() { }
 }
