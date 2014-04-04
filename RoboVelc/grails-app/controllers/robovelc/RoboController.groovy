@@ -10,7 +10,7 @@ class RoboController {
 
     def scaffold = Robo
 
-    def FatorKService, FatorMService, FatorHService  
+    def FatorKService, FatorMService, FatorHService 
 
     def selecaoCorrelacao(){
 
@@ -24,6 +24,26 @@ class RoboController {
             FatorHService.calculoCorrelacao(params.quantidadeCandle.toDouble());
         else 
             print("Erro. Nenhuma correlacao instanciada! \n");
+
+    }
+
+     def ativarRobo(Robo roboInstance){
+
+        def target ="criterioEntrada.txt"
+        File wf = new File(target)
+
+        flash.message = "Robô "+roboInstance.nomeRobo.toString()+" ativado com sucesso!"
+                redirect action:"index"
+
+        print roboInstance.getNomeRobo()
+        print roboInstance.getTipoGrafico()
+        print roboInstance.getAlavancagem()
+        print roboInstance.getQuantidadeCandle()
+
+        wf.write(roboInstance.getNomeRobo() )
+        wf.write(roboInstance.getTipoGrafico() )
+        wf.write(roboInstance.getAlavancagem().toString() )
+        wf.write(roboInstance.getQuantidadeCandle().toString() )
 
     }
 
