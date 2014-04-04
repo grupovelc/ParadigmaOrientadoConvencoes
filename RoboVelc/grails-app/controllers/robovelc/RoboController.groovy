@@ -29,22 +29,22 @@ class RoboController {
 
      def ativarRobo(Robo roboInstance){
 
-        def target ="criterioEntrada.txt"
-        File wf = new File(target)
+        def arquivo ="criterioEntrada.txt"
+        File limpaArquivo = new File(arquivo)
+        File gravaArquivo = new File(arquivo)
 
         flash.message = "Robô "+roboInstance.nomeRobo.toString()+" ativado com sucesso!"
                 redirect action:"index"
 
-        print roboInstance.getNomeRobo()
-        print roboInstance.getTipoGrafico()
-        print roboInstance.getAlavancagem()
-        print roboInstance.getQuantidadeCandle()
-
-        wf.write(roboInstance.getNomeRobo() )
-        wf.write(roboInstance.getTipoGrafico() )
-        wf.write(roboInstance.getAlavancagem().toString() )
-        wf.write(roboInstance.getQuantidadeCandle().toString() )
-
+        limpaArquivo.write("")
+        gravaArquivo.append(roboInstance.getNomeRobo())
+        gravaArquivo.append(" ")
+        gravaArquivo.append(roboInstance.getTipoGrafico())
+        gravaArquivo.append(" ")
+        gravaArquivo.append(roboInstance.getAlavancagem())
+        gravaArquivo.append(" ")
+        gravaArquivo.append(roboInstance.getQuantidadeCandle())
+     
     }
 
         @Transactional
