@@ -46,10 +46,7 @@ class RoboController {
         gravaArquivo.append(roboInstance.getQuantidadeCandle())
         gravaArquivo.append(" ")
 
-        if(roboInstance.nomeRoboAtivado() == null)
-
-            roboInstance.nomeRoboAtivado = "Nenhum"
-        else
+        
             roboInstance.nomeRoboAtivado = roboInstance.getNomeRobo()
 
         print roboInstance.nomeRoboAtivado 
